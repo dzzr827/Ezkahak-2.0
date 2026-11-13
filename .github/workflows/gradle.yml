@@ -1,0 +1,35 @@
+name: EzkaHak 2.0 Build
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Скачать проект
+        uses: actions/checkout@v4
+
+      - name: Установить Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: temurin
+
+      - name: Собрать мод
+        run: |
+          chmod +x gradlew
+          ./gradlew build
+
+      - name: Сохранить JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: EzkaHak-2.0-JAR
+          path: build/libs/*.jar
+          if-no-files-found: error
