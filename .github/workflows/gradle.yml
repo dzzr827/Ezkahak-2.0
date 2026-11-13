@@ -22,10 +22,11 @@ jobs:
           java-version: '21'
           distribution: temurin
 
+      - name: Установить Gradle
+        uses: gradle/actions/setup-gradle@v4
+
       - name: Собрать мод
-        run: |
-          chmod +x gradlew
-          ./gradlew build
+        run: gradle build
 
       - name: Сохранить JAR
         uses: actions/upload-artifact@v4
