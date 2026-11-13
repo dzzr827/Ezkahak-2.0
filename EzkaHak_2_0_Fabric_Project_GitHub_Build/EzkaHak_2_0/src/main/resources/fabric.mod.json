@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "ezkahak",
+  "version": "${version}",
+  "name": "EzkaHak 2.0",
+  "description": "Cyber-style client foundation with ClickGUI, module settings, HUD, and configs for Minecraft 1.21.11.",
+  "authors": [
+    "EzkaHak"
+  ],
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.ezkahak.client.EzkaHakClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.0",
+    "minecraft": "1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "mixins": [
+    "ezkahak.mixins.json"
+  ]
+}
